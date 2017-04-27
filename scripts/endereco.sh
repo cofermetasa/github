@@ -4,7 +4,7 @@
 #----------------------------------------------
 # Esse script tem como objetivo baixar a longitude e latitude por CEP através da API do Google.
 # O script vai ler o arquivo cep.txt, onde deve ter os CEPs linha por linha e assim entregar o resultado no arquivo outputcep.txt
-#
+# Fazendo teste
 # Resultado:
 # ./cepwhile.sh
 # CEP: 30310080 lat -19.9389166 lng -43.9281785
