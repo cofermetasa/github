@@ -19,4 +19,4 @@ do
     content=$(curl -s "{$url01}${cep}{$url02}" |grep -n ^ )
     echo CEP: $cep $content
 echo CEP: $cep $content >> outputcep.txt
-done < cep.txt
+done < endereco.txt
