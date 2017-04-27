@@ -11,12 +11,13 @@
 
 url01=http://maps.google.com/maps/api/geocode/json?address=
 url02=&sensor=false
-while read cep
-do
-#       content=$(curl -s "{$url01}${cep}{$url02}" | grep "lat\|lng" |grep -n ^ | grep "^1:\|^2:" |cut -d: -f2,3 \
-#       |sed 's/,//'| sed 's/://'|  xargs -L15 )
+sed -i "s/ /+/g" endereco.txt
+	while read cep
+	do
+#	       content=$(curl -s "{$url01}${cep}{$url02}" | grep "lat\|lng" |grep -n ^ | grep "^1:\|^2:" |cut -d: -f2,3 \
+#       	|sed 's/,//'| sed 's/://'|  xargs -L15 )
 
-    content=$(curl -s "{$url01}${cep}{$url02}" |grep -n ^ )
-    echo CEP: $cep $content
+   		 content=$(curl -s "{$url01}${cep}{$url02}" |grep -n ^ | grep -oP '\w+.\w+'  |sed '/^location/, / ^location/!d'  |head -5  |tr '\n' ' ')
+    echo $content 
 echo CEP: $cep $content >> outputcep.txt
 done < endereco.txt
